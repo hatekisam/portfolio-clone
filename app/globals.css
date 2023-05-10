@@ -2,26 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: 'corp';
+  src: url('/CorpSansRd Alt W00 Regular Cnd.ttf');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@font-face {
+  font-family: Blackbones;
+  src: url("/Black Bones.ttf");
+}
+
+html,
+body,
+:root{
+  height: 100%;
+  background-color:#171a23 ;
+}
+*{
+  font-family: corp;
+}
+.backbone{
+  font-family: Blackbones;
+}
+.imageToEdit{
+  outline: 2px dashed gray;
+  padding: 40px;
+  position: relative;
+}
+.imageToEdit img{
+  border-radius: 0px 20px 0px 20px;
+}
+.imageToEdit>div:first-child{
+  width: 60px;
+  height: 60px;
+  border-radius: 0 20px 0 20px;
+  background-color: blue;
+  position: absolute;
+  top:-20px;
+  left:-30px;
+}
+
+
+#slide1{
+  animation-name: slideshow;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  border: 2px solid;
+}
+#slide2{
+  animation-name: slideshow;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+}
+#slide3{
+  animation-name: slideshow;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+}
+#slide4{
+  animation-name: slideshow;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-delay: 3s;
+}
+
+@keyframes slideshow {
+  0%{
+    transform: translateY(120px);
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  25%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-120px); 
+  }
+  75%{
+    transform: translateY(-240px);
+  }
+  100%{
+    transform: translateY(360px);
+  }
 }
